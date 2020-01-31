@@ -40,11 +40,11 @@ function Main({ navigation }) {
             params: {
                 latitude,
                 longitude,
-                techs: "ReactJS",
+                techs: 'ReactJS'
             }
         });
-        console.log(response.data.devs);
         setDevs(response.data.devs);
+        console.log(response.data.devs);
     }
 
     function handleRegionChanged (region) {
@@ -60,7 +60,7 @@ function Main({ navigation }) {
         <>
     <MapView onRegionChangeComplete={handleRegionChanged} initialRegion={currentRegion} style={styles.map}>
         {devs.map(dev => (
-            <Marker key={dev._id} coordinate={{ latitude: dev.location.coordinates[0], longitude: dev.location.coordinates[1] }}>
+            <Marker key={dev._id} coordinate={{ latitude: dev.location.coordinates[1], longitude: dev.location.coordinates[0] }}>
             <Image style={styles.avatar} source={{ uri: dev.avatar_url }} />
             <Callout onPress={() => {
                 //navegação

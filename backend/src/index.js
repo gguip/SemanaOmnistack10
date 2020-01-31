@@ -9,6 +9,7 @@
 //MongoDB (BD não-relacional)
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const routes = require('../src/routes');
 
 const app = express();
@@ -19,7 +20,7 @@ mongoose.connect('mongodb+srv://omni:omni@aircnc-hncqq.mongodb.net/week10?retryW
     useFindAndModify: false,
     useCreateIndex: true,
 });
-
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
